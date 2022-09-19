@@ -45,7 +45,7 @@ PyYAML==5.4.1
 requests-cache==0.9.4
 scikit-learn==1.1.1
 scipy==1.8.1
-sip==4.19.13
+sip==6.6.2
 sklearn==0.0
 soupsieve==2.3.2.post1
 suds-community==1.1.1
