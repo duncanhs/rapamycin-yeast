@@ -1,3 +1,4 @@
+pywin32==228
 appdirs==1.4.4
 argh==0.26.2
 atomicwrites==1.4.0
