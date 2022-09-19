@@ -1,4 +1,4 @@
-pywin32==228; platform_system == "Windows"
+pywin32==331; platform_system == "Windows"
 appdirs==1.4.4
 argh==0.26.2
 atomicwrites==1.4.0
