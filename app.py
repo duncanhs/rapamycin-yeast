@@ -1,16 +1,6 @@
 '''
 
-This files describes an interactive website for the visualization of the 
-fia tof ms data from Reichling et al 2022. The page contains three tabs 
-which deploy the:
-    
-    trend for the accumulation of metabolites over time for individual mutants
-    heatmap of changes compared to wt over time for mutants
-    volcano plots with interactive compound identification
-    
-    
-To do: get rid of any data processing in the body and save them as assets that
-can be accessed quickly and easily     
+This is a version of the app for python 3.10.7     
     
 
 '''
