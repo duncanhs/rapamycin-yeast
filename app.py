@@ -1,6 +1,16 @@
 '''
 
-This is a version of the app for python 3.10.7     
+This files describes an interactive website for the visualization of the 
+fia tof ms data from Reichling et al 2022. The page contains three tabs 
+which deploy the:
+    
+    trend for the accumulation of metabolites over time for individual mutants
+    heatmap of changes compared to wt over time for mutants
+    volcano plots with interactive compound identification
+    
+    
+To do: get rid of any data processing in the body and save them as assets that
+can be accessed quickly and easily     
     
 
 '''
@@ -12,13 +22,12 @@ from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-import os 
+import os as os
 import numpy as np
-import webbrowser
-import json
-import re
+import webbrowser as webbrowser
+import json as json
+import re as re
 import dash_bootstrap_components as dbc
-
 
 
 # declare the app
@@ -26,8 +35,8 @@ import dash_bootstrap_components as dbc
 app = Dash(__name__,
            suppress_callback_exceptions = True,
            external_stylesheets = [dbc.themes.FLATLY])
-server = app.server
 
+server = app.server
 #app = Dash(external_stylesheets = [dbc.themes.SPACELAB])
 
 
