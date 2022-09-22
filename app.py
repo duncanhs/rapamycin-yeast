@@ -873,4 +873,4 @@ def func(n_clicks):
     return dcc.send_data_frame(drug_dataframe.to_csv, "mutant_names.csv", index = False)
 
 
-app.run_server(debug=True)
+#app.run_server(debug=True)
