@@ -216,7 +216,7 @@ heatmap_layout_ = html.Div([
                                                      "margin-bottom": "2rem"}),
             dbc.Row(html.P("p-value cutoff")),
             dbc.Row(dcc.Input(id = "pv_cutoff",
-                              value = 1,
+                              value = 0.05,
                               type = "number"), style = {"margin-left": "2px",
                                                          "margin-bottom": "2rem"})
             ], width = 2),
@@ -244,8 +244,9 @@ volcano_layout_ =  html.Div([
         html.H2('Volcano plot'),
         html.P("Select your desired drug and choose significance thresholds "
                "based on p-value or fold-change magnitude"),
-        html.P("You may also select a point by clicking "
-               "for additional compound information")],
+        #html.P("You may also select a point by clicking "
+        #       "for additional compound information")
+        ],
         className = "h-80 p-5 text-white bg-secondary rounded-3", style = {
             'margin-bottom': '2rem'}),
     
@@ -279,7 +280,7 @@ volcano_layout_ =  html.Div([
                 , style = {'margin-bottom': '2rem'}),
                 html.Div(id = "click-output")
             ]),
-            html.P("Click on a point to see metabolite information")
+            #html.P("Click on a point to see metabolite information")
             
             
             ], width = 2),
