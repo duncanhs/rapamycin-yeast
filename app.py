@@ -28,15 +28,18 @@ import webbrowser as webbrowser
 import json as json
 import re as re
 import dash_bootstrap_components as dbc
-
+import flask
 
 # declare the app
 
+server = flask.Flask(__name__)
+
 app = Dash(__name__,
            suppress_callback_exceptions = True,
-           external_stylesheets = [dbc.themes.FLATLY])
+           external_stylesheets = [dbc.themes.FLATLY],
+           server = server)
 
-server = app.server
+#server = app.server
 #app = Dash(external_stylesheets = [dbc.themes.SPACELAB])
 
 
