@@ -33,12 +33,13 @@ from waitress import serve
 
 # declare the app
 
-server = flask.Flask(__name__)
+#server = flask.Flask(__name__)
 
 app = Dash(__name__,
            suppress_callback_exceptions = True,
            external_stylesheets = [dbc.themes.FLATLY],
-           server = server)
+           #server = server,
+           )
 
 #server = app.server
 #app = Dash(external_stylesheets = [dbc.themes.SPACELAB])
@@ -881,5 +882,5 @@ def func(n_clicks):
 #app.run_server(debug=True)
 
 if __name__ == '__main__':
-    #app.run_server(host = '0.0.0.0', debug=True)
-    serve(server, host='0.0.0.0', port=5000, url_scheme = 'https')
+    app.run_server(host = '0.0.0.0', debug=True)
+    #serve(server, host='0.0.0.0', port=5000, url_scheme = 'https')
