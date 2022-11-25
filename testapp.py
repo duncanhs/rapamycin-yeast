@@ -20,11 +20,6 @@ app = Flask(__name__)
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 
-from werkzeug.middleware.proxy_fix import ProxyFix
-# App is behind one proxy that sets the -For and -Host headers.
-app = ProxyFix(app, x_for=1, x_host=1)
-
-
 def hello_world():
 	return 'Hello World'
 
@@ -34,3 +29,11 @@ if __name__ == '__main__':
 	# run() method of Flask class runs the application
 	# on the local development server.
 	app.run(port = 8000)
+    
+    
+
+from werkzeug.middleware.proxy_fix import ProxyFix
+# App is behind one proxy that sets the -For and -Host headers.
+app = ProxyFix(app, x_for=1, x_host=1)
+
+
