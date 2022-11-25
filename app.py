@@ -882,5 +882,6 @@ def func(n_clicks):
 #app.run_server(debug=True)
 
 if __name__ == '__main__':
-    app.run_server(host = '0.0.0.0', debug=True)
+    app.run()
+    #app.run_server(host = '0.0.0.0', debug=True)
     #serve(server, host='0.0.0.0', port=5000, url_scheme = 'https')
