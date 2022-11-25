@@ -11,12 +11,12 @@ from flask import Flask
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
-tsapp = Flask(__name__)
+app = Flask(__name__)
 
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.
-@tsapp.route('/')
+@app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
 	return 'Hello World'
@@ -26,4 +26,4 @@ if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	tsapp.run(port = 8000)
+	app.run(port = 8000)
