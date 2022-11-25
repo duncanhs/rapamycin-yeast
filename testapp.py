@@ -13,6 +13,10 @@ from flask import Flask
 # current module (__name__) as argument.
 app = Flask(__name__)
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+# App is behind one proxy that sets the -For and -Host headers.
+app = ProxyFix(app, x_for=1, x_host=1)
+
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.
