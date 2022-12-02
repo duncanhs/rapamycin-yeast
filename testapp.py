@@ -14,7 +14,7 @@ from flask import Flask
 app = Flask(__name__)
 
 from werkzeug.middleware.proxy_fix import ProxyFix
-
+pu
 app.wsgi_app = ProxyFix(
     app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
@@ -34,6 +34,6 @@ if __name__ == '__main__':
 	# run() method of Flask class runs the application
 	# on the local development server.
 	app.run(
-        #host='0.0.0.0',
-        #port=8080
+        host='0.0.0.0',
+        port=8080
          )
