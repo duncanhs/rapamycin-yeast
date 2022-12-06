@@ -872,6 +872,12 @@ def openurl(clickData):
     prevent_initial_call=True    
     )
 
+
+# The route() function of the Flask class is a decorator,
+# which tells the application which URL should call
+# the associated function.
+@app.route('/')
+
 # allow the user to download the drug names
 
 def func(n_clicks):
@@ -882,10 +888,7 @@ def func(n_clicks):
     
     return dcc.send_data_frame(drug_dataframe.to_csv, "mutant_names.csv", index = False)
 
-# The route() function of the Flask class is a decorator,
-# which tells the application which URL should call
-# the associated function.
-#@app.route('/')
+
 
 #app.run_server(debug=True)
 
