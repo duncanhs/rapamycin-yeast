@@ -32,18 +32,18 @@ from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # declare the server
-server = Flask(__name__)
+# server = Flask(__name__)
 
-server.wsgi_app = ProxyFix(
-    server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
-)
+# server.wsgi_app = ProxyFix(
+#     server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+# )
 
 # declare the app
 
 app = Dash(__name__,
            suppress_callback_exceptions = True,
            external_stylesheets = [dbc.themes.FLATLY],
-           server = server
+           # server = server
            )
 
 # get some simplified data to play with
