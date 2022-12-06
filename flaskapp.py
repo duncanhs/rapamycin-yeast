@@ -29,7 +29,7 @@ import json as json
 import re as re
 import dash_bootstrap_components as dbc
 from flask import Flask
-from waitress import serve
+
 
 # declare the app
 
