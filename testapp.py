@@ -26,7 +26,7 @@ app.wsgi_app = ProxyFix(
 # ‘/’ URL is bound with hello_world() function.
 
 def hello_world():
-	return 'Hello World'
+	return 'Hello World but different'
 
 # main driver function
 if __name__ == '__main__':
