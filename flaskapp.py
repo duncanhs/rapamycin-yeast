@@ -41,9 +41,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 # declare the app
 
 app = Dash(__name__,
-           suppress_callback_exceptions = True,
-           external_stylesheets = [dbc.themes.FLATLY],
            # server = server
+           suppress_callback_exceptions = True,
+           external_stylesheets = [dbc.themes.FLATLY]
            )
 
 # get some simplified data to play with
