@@ -32,19 +32,21 @@ from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # declare the server
-server = Flask(__name__)
-
-server.wsgi_app = ProxyFix(
-    server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
-)
+#server = Flask(__name__)
 
 # declare the app
 
 app = Dash(__name__,
-           server = server,
+           #server = server,
            suppress_callback_exceptions = True,
            external_stylesheets = [dbc.themes.FLATLY]
            )
+
+
+app.server.wsgi_app = ProxyFix(
+    app.server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+)
+
 
 # get some simplified data to play with
 
@@ -887,8 +889,8 @@ def func(n_clicks):
 #app.run_server(debug=True)
 
 if __name__ == '__main__':
-    app.run_server(
-    #app.run(
+    #app.run_server(
+    app.run(
         host='0.0.0.0',
         port=8080,
         debug = True
