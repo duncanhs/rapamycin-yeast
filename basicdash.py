@@ -60,7 +60,7 @@ app.layout = html.Div(id='dash-container')
 def my_dash_app():
     return app.index()
 
-@app.route('/')
+@server.route('/')
 # ‘/’ URL is bound with hello_world() function.
 
 def hello_world():
