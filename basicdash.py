@@ -9,7 +9,7 @@ Created on Wed Dec  7 11:09:10 2022
 # import dash_html_components
 
 # app = dash.Dash(__name__, url_base_pathname= '/dash')
-app.config.suppress_callback_exceptions = True
+#app.config.suppress_callback_exceptions = True
 # app.config.update(
 #  	{
 # 		'routes_pathname_prefix': '',
