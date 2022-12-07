@@ -9,6 +9,7 @@ Created on Fri Nov 25 12:17:37 2022
 # An object of Flask class is our WSGI application.
 from flask import Flask
 from dash import Dash
+import dash_html_components as html
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
@@ -31,7 +32,8 @@ def hello_world():
 
 app = Dash(__name__,
            server = server,
-           suppress_callback_exceptions = True
+           routes_pathname_prefix = "/"
+           #suppress_callback_exceptions = True
            )
 
 app.layout = html.Div("This is the Dash app")
