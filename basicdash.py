@@ -45,13 +45,13 @@ Created on Wed Dec  7 11:09:10 2022
     # serve(app.server, host="0.0.0.0", port=8050)
     
 from flask import Flask
-from dash import Dash, html, dcc
+from dash import Dash, html
 
 app = Flask(__name__)
 dash_app = Dash(
     __name__,
     server=app,
-    url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
+    #url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
 )
 
 app.layout = html.Div(id='dash-container')
