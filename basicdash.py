@@ -60,6 +60,13 @@ app.layout = html.Div(id='dash-container')
 def my_dash_app():
     return app.index()
 
+@app.route('/')
+# ‘/’ URL is bound with hello_world() function.
+
+def hello_world():
+	return 'Hello World but different'
+
+
 if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
