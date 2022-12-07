@@ -51,7 +51,7 @@ server = Flask(__name__)
 app = Dash(
     __name__,
     server=server,
-    url_base_pathname='/dash/'
+    url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
 )
 
 app.layout = html.Div(id='dash-container')
