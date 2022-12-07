@@ -32,7 +32,7 @@ def hello_world():
 
 app = Dash(__name__,
            server = server,
-           routes_pathname_prefix = "/dash"
+           #routes_pathname_prefix = "/dash"
            #suppress_callback_exceptions = True
            )
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	app.run_server(
+	app.server.run(
         debug = True,
         host='0.0.0.0',
         port=8080
