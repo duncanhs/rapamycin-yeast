@@ -47,10 +47,10 @@ Created on Wed Dec  7 11:09:10 2022
 from flask import Flask
 from dash import Dash, html, dcc
 
-server = Flask(__name__)
-app = Dash(
+app = Flask(__name__)
+dash_app = Dash(
     __name__,
-    server=server,
+    server=app,
     url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
 )
 
@@ -66,15 +66,15 @@ app.layout = html.Div(id='dash-container')
 # def hello_world():
 # 	return 'Hello World but different'
 
-@server.route("/")
+@app.route("/")
 def my_dash_app():
-    return app.index()
+    return dash_app.index()
 
 if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	server.run(
+	app.run(
         host='0.0.0.0',
         port=8080
          )
