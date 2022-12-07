@@ -9,7 +9,6 @@ import dash
 import dash_html_components
 
 app = dash.Dash(__name__)
-server = app.server
 app.config.suppress_callback_exceptions = True
 app.config.update(
 	{
@@ -17,10 +16,10 @@ app.config.update(
 		'requests_pathname_prefix': ''
 	}
 )
-
+server = app.server
 app.layout = dash_html_components.Div(
 	[
-		dash_html_components.H1("Hellow Dash World")
+		dash_html_components.H1("Hello Dash World")
 	]
 )
 
