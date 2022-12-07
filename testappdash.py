@@ -22,27 +22,31 @@ server.wsgi_app = ProxyFix(
     server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
 
-app = Dash(__name__,
-           server = server,
-           suppress_callback_exceptions = True
-           )
-
-
-# The route() function of the Flask class is a decorator,
-# which tells the application which URL should call
-# the associated function.
 @server.route('/')
 # ‘/’ URL is bound with hello_world() function.
 
 def hello_world():
 	return 'Hello World but different'
 
+
+app = Dash(__name__,
+           server = server,
+           suppress_callback_exceptions = True
+           )
+
+app.layout = html.Div("This is the Dash app")
+
+# The route() function of the Flask class is a decorator,
+# which tells the application which URL should call
+# the associated function.
+
 # main driver function
 if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	server.run(
+	app.run_server(
+        debug = True,
         host='0.0.0.0',
         port=8080
          )
