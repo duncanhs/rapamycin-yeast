@@ -10,7 +10,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Dash(
     __name__,
-    routes_pathname_prefix='/dash/'
+#    routes_pathname_prefix='/dash/'
 )
 
 app.layout = html.Div(id='example-div-element')
@@ -21,4 +21,4 @@ app.server.wsgi_app = ProxyFix(
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.server.run(debug=True)
