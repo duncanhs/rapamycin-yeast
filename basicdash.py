@@ -25,15 +25,18 @@ app.config.suppress_callback_exceptions = True
 
 # if __name__ == '__main__':
 #     app.run_server()
+#here are full codee
+from dash import Dash
 import flask
-import dash
+from dash import html
 
 server = flask.Flask(__name__)
+app = Dash(__name__, server=server, url_base_pathname='/ATM_Data_Anlaysis/')
+app.layout = html.Div([html.H1('This Is head',style={'textAlign':'center'})])
 
-app = dash.Dash(__name__,
-               url_base_pathname = '/dash',
-               server = server)
+@server.route("/dash")
+def MyDashApp():
+    return app.index()
 
-@server.route('/dash')
-def hello():
-    return 'Hello, World!'
+if __name__ == '__main__':
+    app.run_server(debug=True)
