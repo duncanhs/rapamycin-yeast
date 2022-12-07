@@ -4,23 +4,34 @@ Created on Wed Dec  7 11:09:10 2022
 
 @author: hduncan
 """
-from dash import Dash
-from werkzeug.middleware.proxy_fix import ProxyFix
+from dash import Dash, html, dcc
+import pandas as pd 
+import plotly.express as px
 
 app = Dash(__name__)
 
-app.server.wsgi_app = ProxyFix(
-    app.server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
-)
+# assume you have a "long-form" data frame
+# see https://plotly.com/python/px-arguments/ for more options
+df = pd.DataFrame({
+    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
+    "Amount": [4, 1, 2, 2, 4, 5],
+    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
+})
 
-@app.server.route('/')
-# ‘/’ URL is bound with hello_world() function.
+fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
-def hello_world():
-	return 'Hello World but different'
+app.layout = html.Div(children=[
+    html.H1(children='Hello Dash'),
+
+    html.Div(children='''
+        Dash: A web application framework for your data.
+    '''),
+
+    dcc.Graph(
+        id='example-graph',
+        figure=fig
+    )
+])
 
 if __name__ == '__main__':
-    app.server.run(
-        host='0.0.0.0',
-        port=8080
-         )
+    app.run_server(debug=True)
