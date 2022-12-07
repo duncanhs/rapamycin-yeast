@@ -26,20 +26,45 @@ Created on Wed Dec  7 11:09:10 2022
 # if __name__ == '__main__':
 #     app.run_server()
 #here are full codee
-from dash import Dash
-import flask
-from dash import html
+# from dash import Dash
+# import flask
+# from dash import html
 
-server = flask.Flask(__name__)
-app = Dash(__name__, server=server, url_base_pathname='/')
-app.layout = html.Div([html.H1('This Is head',style={'textAlign':'center'})])
+# server = flask.Flask(__name__)
+# app = Dash(__name__, server=server, url_base_pathname='/')
+# app.layout = html.Div([html.H1('This Is head',style={'textAlign':'center'})])
+
+# @server.route("/dash")
+# def MyDashApp():
+#     return app.index()
+
+# from waitress import serve
+
+# if __name__ == '__main__':
+#     # app.run_server(debug=True)
+    # serve(app.server, host="0.0.0.0", port=8050)
+    
+from flask import Flask
+from dash import Dash, html, dcc
+
+server = Flask(__name__)
+app = Dash(
+    __name__,
+    server=server,
+    url_base_pathname='/dash/'
+)
+
+app.layout = html.Div(id='dash-container')
 
 @server.route("/dash")
-def MyDashApp():
+def my_dash_app():
     return app.index()
 
-from waitress import serve
-
 if __name__ == '__main__':
-    # app.run_server(debug=True)
-    serve(app.server, host="0.0.0.0", port=8050)
+
+	# run() method of Flask class runs the application
+	# on the local development server.
+	server.run(
+        host='0.0.0.0',
+        port=8080
+         )
