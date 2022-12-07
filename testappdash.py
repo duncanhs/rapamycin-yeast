@@ -32,7 +32,7 @@ def hello_world():
 
 app = Dash(__name__,
            server = server,
-           routes_pathname_prefix = "/"
+           routes_pathname_prefix = "/dash"
            #suppress_callback_exceptions = True
            )
 
