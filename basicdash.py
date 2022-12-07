@@ -68,7 +68,8 @@ app.layout = html.Div(id='dash-container')
 
 @app.route("/")
 def my_dash_app():
-    return dash_app.index()
+    #return dash_app.index()
+    return 'Hello world again'
 
 if __name__ == '__main__':
 
