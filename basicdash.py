@@ -15,10 +15,16 @@ app = Dash(
 
 app.layout = html.Div(id='example-div-element')
 
+
 app.server.wsgi_app = ProxyFix(
     app.server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
 
+@app.route('/')
+# ‘/’ URL is bound with hello_world() function.
+
+def hello_world():
+	return 'Hello World but different'
 
 if __name__ == '__main__':
     app.server.run(debug=True)
