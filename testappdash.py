@@ -14,18 +14,19 @@ from dash import Dash
 # current module (__name__) as argument.
 #app = Flask(__name__)
 
-app = Dash(__name__,
-           #server = server,
-           suppress_callback_exceptions = True
-           )
+server = Flask(__name__)
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-app.server.wsgi_app = ProxyFix(
-    app.server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+server.wsgi_app = ProxyFix(
+    server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
 
-server = app.server
+app = Dash(__name__,
+           server = server,
+           suppress_callback_exceptions = True
+           )
+
 
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
@@ -41,7 +42,7 @@ if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	app.run(
+	server.run(
         host='0.0.0.0',
         port=8080
          )
