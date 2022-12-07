@@ -38,5 +38,8 @@ app.layout = html.Div([html.H1('This Is head',style={'textAlign':'center'})])
 def MyDashApp():
     return app.index()
 
+from waitress import serve
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    # app.run_server(debug=True)
+    serve(app.server, host="0.0.0.0", port=8050)
