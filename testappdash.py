@@ -36,7 +36,7 @@ app = Dash(__name__,
            #suppress_callback_exceptions = True
            )
 
-app.layout = html.Div("This is the Dash app")
+app.layout = html.Div(id = "This is the Dash app")
 
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
