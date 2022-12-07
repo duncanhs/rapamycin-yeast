@@ -14,10 +14,12 @@ from dash import Dash
 # current module (__name__) as argument.
 #app = Flask(__name__)
 
-app = Dash(__name__,
-           #server = server,
-           suppress_callback_exceptions = True
-           )
+# app = Dash(__name__,
+#            #server = server,
+#            suppress_callback_exceptions = True
+#            )
+
+app = Dash()
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 
