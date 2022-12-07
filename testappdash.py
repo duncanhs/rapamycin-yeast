@@ -21,9 +21,9 @@ app = Dash(__name__,
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-app.server.wsgi_app = ProxyFix(
-    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
-)
+# app.server.wsgi_app = ProxyFix(
+#     app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+# )
 
 server = app.server
 
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
 	# run() method of Flask class runs the application
 	# on the local development server.
-	app.run(
+	app.run_server(
         host='0.0.0.0',
         port=8080
          )
