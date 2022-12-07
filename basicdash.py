@@ -13,7 +13,7 @@ app.server.wsgi_app = ProxyFix(
     app.server.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
 )
 
-@app.route('/')
+@app.server.route('/')
 # ‘/’ URL is bound with hello_world() function.
 
 def hello_world():
