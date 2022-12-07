@@ -4,6 +4,7 @@ Created on Wed Dec  7 11:09:10 2022
 
 @author: hduncan
 """
+
 from dash import Dash, html, dcc
 import pandas as pd 
 import plotly.express as px
@@ -33,5 +34,7 @@ app.layout = html.Div(children=[
     )
 ])
 
+server = app.server
+             
 if __name__ == '__main__':
     app.run_server(debug=True)
