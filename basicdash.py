@@ -48,13 +48,13 @@ from flask import Flask
 from dash import Dash, html
 
 app = Flask(__name__)
-dash_app = Dash(
-    __name__,
-    server=app,
-    #url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
-)
+# dash_app = Dash(
+#     __name__,
+#     server=app,
+#     #url_base_pathname='/instances/home/scetorprd/htdocs/rapamycin-yeast/'
+# )
 
-app.layout = html.Div(id='dash-container')
+# app.layout = html.Div(id='dash-container')
 
 # @server.route("/dash")
 # def my_dash_app():
