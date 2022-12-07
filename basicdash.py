@@ -31,7 +31,7 @@ import flask
 from dash import html
 
 server = flask.Flask(__name__)
-app = Dash(__name__, server=server, url_base_pathname='/ATM_Data_Anlaysis/')
+app = Dash(__name__, server=server, url_base_pathname='/')
 app.layout = html.Div([html.H1('This Is head',style={'textAlign':'center'})])
 
 @server.route("/dash")
