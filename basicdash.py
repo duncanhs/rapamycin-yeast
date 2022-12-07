@@ -5,36 +5,24 @@ Created on Wed Dec  7 11:09:10 2022
 @author: hduncan
 """
 
-from dash import Dash, html, dcc
-import pandas as pd 
-import plotly.express as px
+import dash
+import dash_html_components
 
-app = Dash(__name__)
-
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
-
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
-
-app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
-
-    html.Div(children='''
-        Dash: A web application framework for your data.
-    '''),
-
-    dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
-])
-
+app = dash.Dash(__name__)
 server = app.server
-             
+app.config.suppress_callback_exceptions = True
+app.config.update(
+	{
+		'routes_pathname_prefix': '',
+		'requests_pathname_prefix': ''
+	}
+)
+
+app.layout = dash_html_components.Div(
+	[
+		dash_html_components.H1("Hellow Dash World")
+	]
+)
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
