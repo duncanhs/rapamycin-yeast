@@ -28,20 +28,15 @@ import webbrowser as webbrowser
 import json as json
 import re as re
 import dash_bootstrap_components as dbc
-import flask
-from waitress import serve
+
 
 # declare the app
 
-#server = flask.Flask(__name__)
-
 app = Dash(__name__,
            suppress_callback_exceptions = True,
-           external_stylesheets = [dbc.themes.FLATLY],
-           #server = server,
-           )
+           external_stylesheets = [dbc.themes.FLATLY])
 
-#server = app.server
+server = app.server
 #app = Dash(external_stylesheets = [dbc.themes.SPACELAB])
 
 
@@ -313,7 +308,7 @@ volcano_layout_ =  html.Div([
 subtext1_ = html.P(
     dcc.Markdown("This is an interactive data viewer for "
                                   
-                 '''[Reichling *et al.* 2022.](https://www.biorxiv.org/content/10.1101/2022.07.25.500770v1)'''
+                 '''[Reichling *et al.* 2023.](https://elifesciences.org/articles/84295)'''
                  
                  " Please cite use if you use this data in your own publication"
     )
@@ -879,9 +874,4 @@ def func(n_clicks):
     return dcc.send_data_frame(drug_dataframe.to_csv, "mutant_names.csv", index = False)
 
 
-#app.run_server(debug=True)
-
-if __name__ == '__main__':
-    app.run()
-    #app.run_server(host = '0.0.0.0', debug=True)
-    #serve(server, host='0.0.0.0', port=5000, url_scheme = 'https')
+app.run_server(debug=True)
